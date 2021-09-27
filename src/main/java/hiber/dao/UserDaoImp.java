@@ -21,7 +21,7 @@ public class UserDaoImp implements UserDao {
 
     @Override
     @SuppressWarnings("unchecked")
-    public List<User> searchUser(String model, int series) {
+    public List<User> getByCarModelAndCarSeries(String model, int series) {
         String hql = "FROM User us WHERE us.cars.model = :paramMod AND us.cars.series = :paramSer";
         TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql)
                 .setParameter("paramMod", model)

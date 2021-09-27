@@ -31,7 +31,7 @@ public class MainApp {
             System.out.println();
         }
 
-        List<User> searchResult = userService.searchUser("Lada Priora", 124);
+        List<User> searchResult = userService.getByCarModelAndCarSeries("Lada Priora", 124);
         for (User user : searchResult) {
             System.out.println("User of Car " + user.getCars().getModel() + " = "
                     + user.getFirstName() + " "

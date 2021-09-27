@@ -10,7 +10,7 @@ public interface UserService {
     @Transactional
     void add(User user);
 
-    List<User> searchUser(String model, int series);
+    List<User> getByCarModelAndCarSeries(String model, int series);
 
     List<User> listUsers();
 }
