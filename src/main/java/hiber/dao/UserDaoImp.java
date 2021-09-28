@@ -20,10 +20,9 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public List<User> getByCarModelAndCarSeries(String model, int series) {
         String hql = "FROM User us WHERE us.cars.model = :paramMod AND us.cars.series = :paramSer";
-        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql)
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql, User.class)
                 .setParameter("paramMod", model)
                 .setParameter("paramSer", series);
         return query.getResultList();
@@ -31,9 +30,8 @@ public class UserDaoImp implements UserDao {
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public List<User> listUsers() {
-        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("from User");
+        TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery("FROM User", User.class);
         return query.getResultList();
     }
 }
